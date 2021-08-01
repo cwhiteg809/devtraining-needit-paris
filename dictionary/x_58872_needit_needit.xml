@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element audit="true" extends="task" label="NeedIt" max_length="40" name="x_58872_needit_needit" type="collection">
+    <element audit="true" extends="task" label="NeedIt" max_length="40" name="x_58872_needit_needit" sizeclass="10" text_index="true" type="collection">
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Approval Needed" max_length="40" name="u_choice_1" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Approved" sequence="0" value="approved"/>
+                <element inactive_on_update="false" label="On Hold" sequence="1" value="onhold"/>
+                <element inactive_on_update="false" label="No Approval Needed" sequence="2" value="noapproval"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Request Standard Status" max_length="40" name="u_choice_2" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Request Standard Status" sequence="0" value="request standard status"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Request Standard Status" max_length="40" name="u_reqstatus" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Yes" sequence="0" value="1"/>
+                <element inactive_on_update="false" label="No" sequence="1" value="no"/>
+            </choice>
+        </element>
         <element attributes="encode_utf8=false" label="Requested for" mandatory="true" max_length="32" name="u_requested_for" reference="sys_user" type="reference"/>
         <element attributes="edge_encryption_enabled=true" choice="3" default="legal" label="Request type" mandatory="true" max_length="40" name="u_request_type" type="string">
             <choice>
@@ -7,6 +25,14 @@
                 <element inactive_on_update="false" label="Facilities" sequence="1" value="facilities"/>
                 <element inactive_on_update="false" label="Legal" sequence="2" value="legal"/>
                 <element inactive_on_update="false" label="Information Technology" sequence="3" value="it"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="New String" max_length="40" name="u_string_6" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="normal" label="Type" max_length="40" name="u_type" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Standard" sequence="0" value="standard"/>
+                <element inactive_on_update="false" label="Normal" sequence="1" value="normal"/>
+                <element inactive_on_update="false" label="Emergency" sequence="2" value="emergency"/>
             </choice>
         </element>
         <element attributes="edge_encryption_enabled=true" choice="3" default="legal1" label="What needed" mandatory="true" max_length="40" name="u_what_needed" type="string">
